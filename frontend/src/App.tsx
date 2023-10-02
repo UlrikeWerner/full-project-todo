@@ -1,11 +1,9 @@
 import {Navigate, Route, Routes} from "react-router-dom";
-import Archive from "./pages/archive/Archive.tsx";
-import Backlog from "./pages/backlog/Backlog.tsx";
 import Overview from "./pages/overview/Overview.tsx";
-import WIP from "./pages/wip/WIP.tsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {ToDoType} from "../types/toDoType.ts";
+import BasicPage from "./pages/basicPage/BasicPage.tsx";
 
 export default function App() {
     const startList: ToDoType[] = [];
@@ -31,9 +29,9 @@ export default function App() {
     <>
       <Routes>
           <Route path={"/"} element={<Overview toDoList={toDoData}/>}/>
-          <Route path={"/backlog"} element={<Backlog />}/>
-          <Route path={"/working"} element={<WIP />}/>
-          <Route path={"/archive"} element={<Archive />}/>
+          <Route path={"/backlog"} element={<BasicPage pageName="Backlog" toDoList={toDoData} filterStatus="OPEN"/>}/>
+          <Route path={"/working"} element={<BasicPage pageName="Work in Progress" toDoList={toDoData} filterStatus="IN_PROGRESS"/>}/>
+          <Route path={"/archive"} element={<BasicPage pageName="Archive" toDoList={toDoData} filterStatus="DONE"/>}/>
           <Route path={"/*"} element={<Navigate to={"/"}/>}/>
       </Routes>
     </>

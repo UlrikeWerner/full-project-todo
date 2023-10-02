@@ -3,3 +3,7 @@ export type ToDoType = {
         description: string,
         status: string
 }
+
+export type PageProps = {
+        toDoList: ToDoType[]
+}

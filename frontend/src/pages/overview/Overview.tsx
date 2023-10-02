@@ -1,13 +1,9 @@
 import NavigationBar from "../../NavigationBar/NavigationBar.tsx";
 import './overview.css'
 import ToDoList from "../../ToDo/ToDoList.tsx";
-import {ToDoType} from "../../../types/toDoType.ts";
+import {PageProps} from "../../../types/toDoType.ts";
 
-type OverviewProps = {
-    toDoList: ToDoType[]
-}
-
-export default function Overview(props: OverviewProps) {
+export default function Overview(props: PageProps) {
 
     return (
         <>
