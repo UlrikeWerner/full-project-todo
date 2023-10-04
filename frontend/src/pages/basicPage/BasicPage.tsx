@@ -6,7 +6,7 @@ type BasicPageProps = {
     pageName: string,
     toDoList: ToDoType[],
     filterStatus: string,
-    nextStatus(id: string, status: string): void
+    nextStatus(id: string, toDo: ToDoType): void
 }
 
 export default function BasicPage(props: BasicPageProps) {

@@ -2,12 +2,12 @@ export type ToDoType = {
         id: string,
         description: string,
         status: string,
-        nextStatus(id: string, status: string): void
+        nextStatus?(id: string, toDo: ToDoType): void
 }
 
 export type PageProps = {
         toDoList: ToDoType[],
-        nextStatus(id: string, status: string): void
+        nextStatus(id: string, toDo: ToDoType): void
 }
 
 export enum Status {

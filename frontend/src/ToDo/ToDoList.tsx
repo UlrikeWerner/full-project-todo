@@ -3,7 +3,7 @@ import {ToDoType} from "../types/toDoType.ts";
 
 type ToDoListProps = {
     list: ToDoType[],
-    nextStatus(id: string, status: string): void
+    nextStatus(id: string, todo: ToDoType): void
 }
 
 export default function ToDoList(props: ToDoListProps) {

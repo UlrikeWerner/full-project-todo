@@ -7,7 +7,9 @@ import BasicPage from "./pages/basicPage/BasicPage.tsx";
 
 export default function App() {
     const startList: ToDoType[] = [];
+    //const startToDo: ToDoType = {id: "", description: "", status: ""};
     const [toDoData, setToDoData] = useState<ToDoType[]>(startList);
+    //const [toDoById, setToDoById] = useState<ToDoType>(startToDo);
 
     useEffect(() => {
         loadData();
@@ -25,8 +27,42 @@ export default function App() {
             })
     }
 
-    function setNextStatus(id: string, status: string): void {
-        console.log(id + " " + status);
+    /*function getDataById(id: string) :void {
+        axios.get("/api/todo/" + id)
+            .then((response) => {
+                setToDoById(response.data);
+            })
+            .catch((error) => {
+                console.log(error.status);
+                console.log(error.message);
+            })
+    }*/
+
+    function setNewStatus(id: string, toDo: ToDoType): void {
+        axios.put("/api/todo/" + id + "/update", toDo)
+            .then((response) => {
+                console.log(response.status);
+            })
+            .then(loadData)
+            .catch((error) => {
+                console.log(error.status);
+                console.log(error.message);
+            })
+    }
+
+    function getNewStatus(status: string): string{
+        let newStatus: string;
+        if(status === "OPEN"){
+            newStatus = "IN_PROGRESS";
+        } else {
+            newStatus = "DONE";
+        }
+        return newStatus;
+    }
+
+    function setNextStatus(id: string, toDo: ToDoType): void {
+        const newToDo: ToDoType = {...toDo, status: getNewStatus(toDo.status)}
+        setNewStatus(id, newToDo);
     }
 
   return (

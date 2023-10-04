@@ -1,0 +1,19 @@
+.ToDo-container-color-OPEN {
+    background-color: #F5ADA4;
+}
+
+.ToDo-container-color-IN_PROGRESS {
+    background-color: #FFEBB5;
+}
+
+.ToDo-container-color-DONE {
+    background-color: #C3F5A4;
+}
+
+.ToDo-color {
+    color: slategrey;
+}
+
+.ToDo-Status-Button-red {
+    background-color: darkred;
+}
