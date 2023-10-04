@@ -13,11 +13,11 @@ export default function Overview(props: PageProps) {
             <div className="overview-table-grid overview-table-margin">
                 <section className="overview-grid-start1 overview-grid-border">
                     <h2>Backlog</h2>
-                    <ToDoList nextStatus={props.nextStatus} list={props.toDoList.filter((element) => element.status === "OPEN")}/>
+                    <ToDoList handleOpenDialog={props.handleOpenDialog} nextStatus={props.nextStatus} list={props.toDoList.filter((element) => element.status === "OPEN")}/>
                 </section>
                 <section className="overview-grid-start2 overview-grid-border">
                     <h2>Work in Progress</h2>
-                    <ToDoList nextStatus={props.nextStatus} list={props.toDoList.filter((element) => element.status === "IN_PROGRESS")}/>
+                    <ToDoList handleOpenDialog={props.handleOpenDialog} nextStatus={props.nextStatus} list={props.toDoList.filter((element) => element.status === "IN_PROGRESS")}/>
                 </section>
             </div>
         </>
