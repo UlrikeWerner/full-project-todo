@@ -1,11 +1,12 @@
 import NavigationBar from "../../NavigationBar/NavigationBar.tsx";
-import {ToDoType} from "../../../types/toDoType.ts";
+import {ToDoType} from "../../types/toDoType.ts";
 import ToDoList from "../../ToDo/ToDoList.tsx";
 
 type BasicPageProps = {
     pageName: string,
     toDoList: ToDoType[],
     filterStatus: string,
+    nextStatus(id: string, toDo: ToDoType): void
 }
 
 export default function BasicPage(props: BasicPageProps) {
@@ -15,7 +16,7 @@ export default function BasicPage(props: BasicPageProps) {
             <NavigationBar />
             <h1>{props.pageName}</h1>
             <section>
-                <ToDoList list={props.toDoList.filter((entry) => entry.status === props.filterStatus)}/>
+                <ToDoList nextStatus={props.nextStatus} list={props.toDoList.filter((entry) => entry.status === props.filterStatus)}/>
             </section>
         </>
     )
